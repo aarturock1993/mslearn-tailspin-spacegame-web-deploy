@@ -1,16 +1,15 @@
-using Microsoft.Edge.SeleniumTools;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections;
 
 namespace UITests
 {
-    // [TestFixture("Chrome")]
-    [TestFixture("Firefox")]
+    [TestFixture("Chrome")]
+    // [TestFixture("Firefox")]
     [TestFixture("Edge")]
     public class HomePageTest
     {
@@ -42,11 +41,7 @@ namespace UITests
                     break;
                   case "Edge":
                     driver = new EdgeDriver(
-                        Environment.GetEnvironmentVariable("EdgeWebDriver"),
-                        new EdgeOptions
-                        {
-                            UseChromium = true
-                        }
+                        Environment.GetEnvironmentVariable("EdgeWebDriver")
                     );
                     break;
                   default:
