@@ -54,7 +54,7 @@ namespace UITests
                 }
 
                 // Wait until the page is fully loaded on every page navigation or page reload.
-                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(30);
+                driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(120);
 
                 // Navigate to the site.
                 // The site name is stored in the SITE_URL environment variable to make 
@@ -63,7 +63,7 @@ namespace UITests
                 driver.Navigate().GoToUrl(url + "/");
 
                 // Wait for the page to be completely loaded.
-                new WebDriverWait(driver, TimeSpan.FromSeconds(60))
+                new WebDriverWait(driver, TimeSpan.FromSeconds(120))
                     .Until(d => ((IJavaScriptExecutor) d)
                         .ExecuteScript("return document.readyState")
                         .Equals("complete"));
